@@ -10,7 +10,7 @@ IMAGE_NAME=chrometainer
 
 xhost +
 
-docker run -d --rm \
+docker run -d \
 	-v ${XSOCK}:${XSOCK} \
 	-e DISPLAY=${DISPLAY} \
   --privileged=true \
