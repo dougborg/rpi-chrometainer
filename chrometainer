@@ -1,0 +1,19 @@
+#!/bin/bash
+
+URL=${1}
+
+XSOCK=/tmp/.X11-unix
+export DISPLAY=unix:0
+
+CONTAINER=dougborg/rpi-chrometainer
+IMAGE_NAME=chrometainer
+
+xhost +
+
+docker run -d --rm \
+	-v ${XSOCK}:${XSOCK} \
+	-e DISPLAY=${DISPLAY} \
+  --privileged=true \
+  --restart=always \
+  --name ${IMAGE_NAME} \
+  ${CONTAINER} --app="${URL}"

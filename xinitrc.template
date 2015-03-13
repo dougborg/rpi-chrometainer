@@ -1,0 +1,22 @@
+#!/bin/sh
+while true; do
+
+  # TODO: Clean up previously running containers.
+
+  # Disable DPMS / Screen blanking
+  xset -dpms
+  xset s off
+
+  # Reset the framebuffer's colour-depth TODO: Do I need this?
+  # fbset -depth $( cat /sys/module/*fb*/parameters/fbdepth );
+
+  # Hide the cursor (move it to the bottom-right, comment out if you want mouse interaction)
+  xwit -root -warp $( cat /sys/module/*fb*/parameters/fbwidth ) $( cat /sys/module/*fb*/parameters/fbheight )
+
+  # Start the window manager (remove "-use_cursor no" if you actually want mouse interaction)
+  matchbox-window-manager -use_titlebar no -use_cursor no &
+
+  # Start the chrometainer with a url
+  /home/pi/rpi-chrometainer/chrometainer http://URL.of.your/choice.html
+
+done;
