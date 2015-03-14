@@ -10,10 +10,11 @@ IMAGE_NAME=chrometainer
 
 xhost +
 
-docker run -d \
-	-v ${XSOCK}:${XSOCK} \
-	-e DISPLAY=${DISPLAY} \
+# Run an ephemeral chromium container
+docker run -rm \
+  -v ${XSOCK}:${XSOCK} \
+  -e DISPLAY=${DISPLAY} \
+  --restart=on-failure:5 \
   --privileged=true \
-  --restart=always \
   --name ${IMAGE_NAME} \
   ${CONTAINER} --app="${URL}"

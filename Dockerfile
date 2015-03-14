@@ -4,10 +4,12 @@ MAINTAINER Douglas Borg <dougborg@dougborg.org>
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
       ca-certificates \
-      libnss3 \
       ttf-mscorefonts-installer \
-      xwit \
-      chromium && \
+      libexif-dev \
+      libpango1.0-0 \
+      libv4l-0 \
+      chromium \
+      chromium-l10n && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

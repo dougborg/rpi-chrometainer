@@ -14,3 +14,6 @@ push:
 test:
 	docker run --rm $(DOCKER_IMAGE_TAGNAME) /bin/echo "Success."
 
+install: 
+	sudo sed -i 's/allowed_users=.*/allowed_users=anybody/' /etc/X11/Xwrapper.config
+        docker pull dougborg/rpi-chrometainer

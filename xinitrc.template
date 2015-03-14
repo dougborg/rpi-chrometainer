@@ -15,4 +15,4 @@ xwit -root -warp $( cat /sys/module/*fb*/parameters/fbwidth ) $( cat /sys/module
 matchbox-window-manager -use_titlebar no -use_cursor no &
 
 # Start the chrometainer with a url
-/home/pi/rpi-chrometainer/chrometainer http://URL.of.your/choice.html
+/home/pi/rpi-chrometainer/chrometainer http://dougborg.org
